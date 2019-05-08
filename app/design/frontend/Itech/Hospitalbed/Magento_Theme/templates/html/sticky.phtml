@@ -1,0 +1,17 @@
+<?php
+/**
+ * Copyright © 2017 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/**
+ * @var $block \Magento\Theme\Block\Html\Sticky
+ */
+$_helper = $this->helper('CleverSoft\CleverTheme\Helper\Data');
+$sticky_logo = $block->getConfig('cleversofttheme/header/sticky_logo');
+$logoSrc = $_helper->getMediaUrl('wysiwyg/cleversoft/logo/') . $sticky_logo;
+ 
+?>
+<div class="sticky logo"><?php echo $logoSrc; ?></div>

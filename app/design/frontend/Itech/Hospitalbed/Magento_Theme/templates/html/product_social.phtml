@@ -1,0 +1,19 @@
+<?php
+    $urlInterface = \Magento\Framework\App\ObjectManager::getInstance()->get('Magento\Framework\UrlInterface');
+    $urlInterface->getCurrentUrl();
+    ?>
+<div class="share-links">
+    <div class="product_socials_wrapper_inner">
+        <span class="product-social__title heading-meta"><?= __("Share")?>:</span>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $urlInterface->getCurrentUrl(); ?>" target="_blank" class="facebook" title="Facebook">
+            <i class="cs-font clever-icon-facebook"></i>
+        </a>
+        <a href="https://twitter.com/share?url=<?php echo $urlInterface->getCurrentUrl(); ?>" target="_blank" class="twitter" title="Twitter">
+            <i class="cs-font clever-icon-twitter"></i>
+        </a>
+        <a href="https://pinterest.com/pin/create/button/?url=<?php echo $urlInterface->getCurrentUrl(); ?>" target="_blank" class="vimeo" title="vimeo">
+            <i class="cs-font clever-icon-pinterest"></i>
+        </a>
+        <?php echo $this->getLayout()->createBlock('Magento\Catalog\Block\Product\View')->setTemplate('Magento_Catalog::product/view/mailto.phtml')->toHtml(); ?>
+    </div>
+</div>

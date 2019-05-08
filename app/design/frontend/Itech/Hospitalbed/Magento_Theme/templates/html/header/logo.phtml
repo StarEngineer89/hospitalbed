@@ -1,0 +1,82 @@
+<?php
+/**
+ * Copyright © 2017 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+// @codingStandardsIgnoreFile
+/**
+ * @var \Magento\Theme\Block\Html\Header\Logo $block
+ */
+$theme = $this->helper('CleverSoft\CleverTheme\Helper\Data');
+$logo = '';
+$logo_url = '';
+
+$storeName = $block->getThemeName() ? $block->getThemeName() : $block->getLogoAlt();
+
+$headerBuilderHelper = $this->helper('CleverSoft\CleverTheme\Helper\HeaderData');
+$settingData = $headerBuilderHelper->getSettingData();
+$sticky_logo_url = "";
+?>
+
+<?php
+    if(isset($settingData->logo->value) && $settingData->logo->value) {
+        $logo = $settingData->logo->value;
+        $logo_url = $headerBuilderHelper->getMediaUrl().$settingData->logo->value;
+    }
+    if(isset($settingData->sticky_logo->value) && $settingData->sticky_logo->value) {
+        $sticky_logo = $settingData->sticky_logo->value;
+        $sticky_logo_url = $headerBuilderHelper->getMediaUrl().$settingData->sticky_logo->value;
+    }
+?>
+<div class="logo-container d-block <?=isset($settingData->{'_customize_header_logo_position'}) && $settingData->{'_customize_header_logo_position'} ? $settingData->{'_customize_header_logo_position'} : '';?>">
+    <?php if ($block->isHomePage()):?>
+        <strong class="logo">
+    <?php else: ?>
+        <a class="logo" href="<?php echo $block->getUrl(''); ?>" title="<?php /* @escapeNotVerified */ echo $storeName ?>">
+    <?php endif ?>
+    <?php if ($logo) { ?>
+        <img src="<?php /* @escapeNotVerified */ echo $logo_url ?>"
+            title="<?=isset($settingData->{'_customize_logo_tagline'}) && $settingData->{'_customize_logo_tagline'} ? $settingData->{'_customize_logo_tagline'} : 'logo';?>"
+            <?=isset($settingData->{'_customize_header_logo_with'}) && $settingData->{'_customize_header_logo_with'} ? 'width="'.$settingData->{'_customize_header_logo_with'}.'"' : '';?>
+            alt="<?php /* @escapeNotVerified */ echo $block->getLogoAlt() ?>"
+        />
+    <?php } else {?>
+        <img src="<?php /* @escapeNotVerified */ echo $block->getLogoSrc() ?>"
+            title="<?=isset($settingData->{'_customize_logo_tagline'}) && $settingData->{'_customize_logo_tagline'} ? $settingData->{'_customize_logo_tagline'} : 'logo';?>"
+            <?=isset($settingData->{'_customize_header_logo_with'}) && $settingData->{'_customize_header_logo_with'} ? 'width="'.$settingData->{'_customize_header_logo_with'}.'"' : '';?>
+            alt="<?php /* @escapeNotVerified */ echo $block->getLogoAlt() ?>"
+            <?php echo $block->getLogoWidth() ? 'width="' . $block->getLogoWidth() . '"' : '' ?>
+            <?php echo $block->getLogoHeight() ? 'height="' . $block->getLogoHeight() . '"' : '' ?>
+            />
+    <?php } ?>
+    <?php if ($block->isHomePage()):?>
+        </strong>
+        <?php if($sticky_logo_url):?>
+            <div class="logo-is-sticky">
+                <strong class="logo__sticky" title="<?php /* @escapeNotVerified */ echo $storeName ?>">
+                    <img src="<?php /* @escapeNotVerified */ echo $sticky_logo_url ?>"
+                        title="<?=isset($settingData->{'_customize_logo_tagline'}) && $settingData->{'_customize_logo_tagline'} ? $settingData->{'_customize_logo_tagline'} : 'sticky_logo_url';?>"
+                        <?=isset($settingData->{'_customize_header_logo_with'}) && $settingData->{'_customize_header_logo_with'} ? 'width="'.$settingData->{'_customize_header_logo_with'}.'"' : '';?>
+                        alt="<?php /* @escapeNotVerified */ echo $block->getLogoAlt() ?>"
+                    />
+                </strong>
+            </div>
+        <?php endif;?>
+    <?php else:?>
+        </a>
+         <?php if($sticky_logo_url):?>
+            <div class="logo-is-sticky">
+                <a class="logo__sticky" href="<?php echo $block->getUrl(''); ?>" title="<?php /* @escapeNotVerified */ echo $storeName ?>">
+                    <img src="<?php /* @escapeNotVerified */ echo $sticky_logo_url ?>"
+                        title="<?=isset($settingData->{'_customize_logo_tagline'}) && $settingData->{'_customize_logo_tagline'} ? $settingData->{'_customize_logo_tagline'} : 'sticky_logo_url';?>"
+                        <?=isset($settingData->{'_customize_header_logo_with'}) && $settingData->{'_customize_header_logo_with'} ? 'width="'.$settingData->{'_customize_header_logo_with'}.'"' : '';?>
+                        alt="<?php /* @escapeNotVerified */ echo $block->getLogoAlt() ?>"
+                    />
+                </a>
+            </div>
+        <?php endif;?>
+    <?php endif?>
+    <?php if(isset($settingData->{'_customize_logo_tagline'}) && $settingData->{'_customize_logo_tagline'} && isset($settingData->{'_customize-checkbox-logo-slogan'}) && $settingData->{'_customize-checkbox-logo-slogan'}):?>
+        <p class="logo-tagline"><?=$settingData->{'_customize_logo_tagline'}?></p>
+    <?php endif;?>
+</div>

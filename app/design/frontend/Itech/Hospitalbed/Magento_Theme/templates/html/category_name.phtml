@@ -1,0 +1,14 @@
+<?php
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$product = $objectManager->get('Magento\Framework\Registry')->registry('current_product');
+$categories = $product->getCategoryIds();
+?>
+<div class="product-category-name">
+    <span class="product-category-name__title heading-meta"><?php echo __("Category")?>:</span>
+    <?php
+    foreach($categories as $category){
+        $cat = $objectManager->create('Magento\Catalog\Model\Category')->load($category);
+        echo '<span class="product-category-name__name">' . $cat->getName(). ", " . '</span>';
+    }
+    ?>
+</div>
