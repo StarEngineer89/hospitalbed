@@ -4,8 +4,77 @@
  * See COPYING.txt for license details.
  */
 ?>
+<footer class="page-footer"><div class="block-footer-bottom"><div class="container">
+<div class="main-fix bg-black clearfix">
+<div class="row">
+<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
+<div class="collapsible mobile-collapsible">
+<h3 class="block-title heading bold">Contact information</h3>
+<span class="toggle-tab mobile" style="display: none;"><span class="hidden">hidden</span></span>
+<div class="block1 block-content-statick toggle-content">
+ <?php 
+    echo $block->getLayout()
+               ->createBlock('Magento\Cms\Block\Block')
+               ->setBlockId('footer_contect_information')
+               ->toHtml();
+?>
+</div>
+</div>
+</div>
+<div class="col-lg-9 col-md-9 col-sm-8 col-xs-12 clear-both">
+<div class="row">
+<div class="col-lg-12 row1">
+<div class="block-newletter"><div class="testttt">
+        <form class="form subscribe clearfix" novalidate="novalidate" action="http://mobilit2.nextmp.net/newsletter/subscriber/new/" method="post" id="newsletter-validate-detail">
+			<div class="block-content">
+				<div class="block-title new22">
+					<strong>Call for Special Offers</strong>
+				</div>
+				<div class="field newsletter input-box clearfix">
+				    <div class="subscribe-panel">
+					<strong style="color:  white;    font-size: 24px;">1-800-997-3077</strong>
+				    	<p class="panel-text">or enter email below.</p>
+				    </div>
+					<div class="visible">
+ <?php 
+           echo $block->getLayout()
+               ->createBlock('Magento\Cms\Block\Block')
+               ->setBlockId('footer_newslatter')
+               ->toHtml();
+?>
+					</div>
+				</div>
+			</div>
+        </form>
+</div>
+</div>
+</div>
+<div class="sst">
+ <?php 
+    echo $block->getLayout()
+               ->createBlock('Magento\Cms\Block\Block')
+               ->setBlockId('footer_bottem')
+               ->toHtml();
+?>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></div>
 <?php if($block->getCopyright() !='') : ?>
 <small class="copyright">
+<div class="main-row">
     <span><?php /* @escapeNotVerified */ echo $block->getCopyright() ?></span>
+    <div class="payment">
+	<a class="introduce-paypal" href="#"> <img class="img-responsive paypal" alt="Payment" src="http://mobilit2.nextmp.net/pub/media/wysiwyg/alothemes/static/payment.png"> </a>
+</div>
+</div>
 </small>
 <?php endif; ?>
+</footer>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+
+

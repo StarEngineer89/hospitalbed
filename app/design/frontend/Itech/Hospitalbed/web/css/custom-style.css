@@ -257,4 +257,240 @@
 		width: 100px;
 		margin: 4px 0 0 0;
 	}
+	.footer.content {
+    display: none;
+}	
+.copyright span {
+    float: left;
+    font-size: 14px;
+    margin-left: 85px;
+    margin-top: 8px;
+}
+img.img-responsive.paypal {
 
+    margin-left: 0;
+    float: right;
+    margin: 18px 0 18px;
+
+}
+.block-title.heading.one {
+
+    display: block;
+    font-size: 15px;
+    padding: 0 0 20px 0;
+    margin: 35px 0 0;
+    font-weight: bold;
+    text-transform: uppercase;
+
+}
+.block-title.new22 {
+
+    margin: 0px 0 40px;
+    display: block;
+    line-height: normal;
+    border: 0;
+
+}
+.test {
+
+    float: left;
+    margin: 0 81px 20px 0;
+
+}
+.footer-primary {
+
+    border-top: 1px solid #4c4c4c;
+    padding: 0 0 0 0;
+
+}
+.main-row {
+
+    border-top: 1px solid #4c4c4c;
+    margin: 0 auto;
+    width: 1170px;
+
+}
+.copyright span {
+
+    float: left;
+    font-size: 14px;
+    margin-left: 0;
+    margin-top: 18px;
+    margin-bottom: 18px;
+    color: #aaa;
+
+}
+body .copyright {
+
+    background-color: #262626;
+    color: #fff;
+    box-sizing: border-box;
+    display: block;
+    padding: 10px;
+    text-align: center;
+
+}
+.tit-contain {
+
+    font-size: 13px;
+
+}
+li{
+	font-size: 14px;
+}
+.block-title strong {
+    font-weight: bolder;
+    font-size: 19px;
+}
+
+.visible {
+
+    visibility: visible !important;
+    float: right;
+    width: 54%;
+
+}
+.block-title.heading.bold {
+    display: block;
+    font-size: 15px;
+    padding: 0 0 20px 0;
+    margin: 0 0 0;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+p.panel-text {
+    font-size: 15px;
+     color: #aaaa;
+}
+.page-footer {
+    background: #f4f4f4;
+    margin-top: auto;
+     padding-bottom: 0px; 
+}
+.block-footer-bottom {
+    margin-top: 34px;
+}
+span.tit-contain {
+    color: #aaaaaa;
+}
+body .container {
+
+    max-width: 1170px;
+
+}
+h3.block-title.heading {
+
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 14px;
+    padding-top: 10px;
+
+}
+.subscribe-panel {
+
+    float: left;
+    width: auto;
+
+}
+.bullet li a {
+    color: #aaa;
+}
+.page-footer {
+    background: #262626;
+     }
+
+  	 input.input-text {
+    color: #aaaaaa;
+    background-color: #ffffff;
+    border-color: #ffffff;
+    display: block;
+    height: 40px;
+    margin: 0;
+    width: 100%;
+    border-width: 1px;
+    border-radius: 20px 0 0 20px;
+    border-style: solid;
+    padding: 0 15px;
+}
+input.input-text, select, textarea {
+    background: #f8f8f8;
+    border: 1px solid #e6e6e6;
+} 
+button.action.subscribe.button {
+
+    float: right;
+    margin-top: -40px;
+    padding: 11px;
+    width: 23%;
+    text-transform: uppercase;
+    font-size: 14px;
+    color: #fff;
+
+}
+body button:not(.primary) {
+
+    box-shadow: inset 0 0px 0 0 #fff,inset 0 -1px 0 0 rgba(204,204,204,0.3);
+
+}
+.actions button.button {
+
+    border-style: solid;
+    border-width: 0;
+    padding: 0 18px;
+    height: 40px;
+    border-radius: 0 20px 20px 0;
+
+}
+.block-subscribe .actions button.button {
+  
+    border-radius: 0 20px 20px 0;
+}
+ .actions button.button {
+  
+    background-color: #4081d1;
+    border-color: #4081d1;
+}
+input.input-text, select, textarea {
+    background: #f8f8f8;
+    border: 1px solid #e6e6e6;
+    /* margin-right: 16px; */
+    width: 96%;
+   
+}
+.col-lg-12.row1 {
+
+    padding: 0;
+
+}
+.block-title strong {
+    font-weight: bolder;
+    font-size: 14px;
+    color: #fff;
+    text-transform: uppercase;
+    margin: 0;
+    padding: 0;
+}
+
+#content .home_collection.section-featured-collections .box_1 {
+    
+    height: 140px;
+    
+  }
+  li.product-item {
+    width: 23%!important;
+}
+ @media screen and (min-width: 768px) {  
+    #flexslider-slideshow .banner h2 {
+      font-size:36px;
+    }
+    #flexslider-slideshow .banner h4,  #flexslider-slideshow .banner h4 p {
+      font-size:29px;
+    }
+
+    #flexslider-slideshow .banner h5 p {
+      font-size:23px;
+    }
+    #flexslider-slideshow .banner p {
+      font-size:23px;
+    }
+  }
