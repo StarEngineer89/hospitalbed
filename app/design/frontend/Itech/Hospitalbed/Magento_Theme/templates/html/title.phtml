@@ -27,33 +27,14 @@ if (trim($block->getPageHeading())) {
             <?php endif; ?>>
             <span itemprop="name" >
             <?php /* @escapeNotVerified */
-            //echo $title ?>
+            echo $title ?>
                 </span>
         </h1>
         <?php echo $block->getChildHtml(); ?>
     </div>
 <?php endif; ?>
 
-<?php 
-    echo $block->getLayout()
-               ->createBlock('Magento\Cms\Block\Block')
-               ->setBlockId('home_banner')
-               ->toHtml();
-?>
 
- <?php 
-    echo $block->getLayout()
-               ->createBlock('Magento\Cms\Block\Block')
-               ->setBlockId('home_category')
-               ->toHtml();
-?>
-<h1 class="home_featured">Featured Products</h1>
-<?php 
-    echo $block->getLayout()
-               ->createBlock('Magento\Cms\Block\Block')
-               ->setBlockId('home_product ')
-               ->toHtml();
-?>
 
 <!--SLIDER END -->
 

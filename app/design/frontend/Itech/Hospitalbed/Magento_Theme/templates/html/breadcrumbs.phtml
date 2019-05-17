@@ -8,6 +8,8 @@
 
 ?>
 <?php if ($crumbs && is_array($crumbs)) : ?>
+<div class="back-color">
+<main class="page-main1">
     <ul class="items">
         <?php foreach ($crumbs as $crumbName => $crumbInfo) : ?>
             <li class="item <?php /* @escapeNotVerified */ echo $crumbName ?>">
@@ -23,4 +25,6 @@
             </li>
         <?php endforeach; ?>
     </ul>
+	</main>
+	</div>
 <?php endif; ?>
