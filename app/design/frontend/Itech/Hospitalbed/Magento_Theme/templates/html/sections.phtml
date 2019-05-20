@@ -61,9 +61,10 @@ $groupBehavior = $block->getGroupBehaviour() ? $block->getGroupBehaviour() : '{"
 			</div>
 			<div class="header_cart">
 				<a href="Javascript:void()">
-					<span class="cart_icon"><?php  echo $this->getLayout()->createBlock('Magento\Checkout\Block\Cart\Sidebar')
-          			->setTemplate('Magento_Checkout::cart/minicart.phtml')->toHtml(); ?></span>
-					<span class="cart_price">Cart <strong>$0.00</strong></span>
+					<span class="cart_icon"><span class="cart_price"><a href="<?php echo $block->getBaseUrl(); ?>checkout/cart/">Cart <strong>$<?php  echo $this->getLayout()->createBlock('Magento\Checkout\Block\Cart\Sidebar')
+          			->setTemplate('Magento_Checkout::cart/minicart.phtml')->toHtml(); ?></strong></span></span>
+					
+					<?php  $counter = $this->helper('\Magento\Checkout\Helper\Cart'); ?><?php //echo $counter->getItemsCount();?>
 				</a>
 			</div>
 		</div>
@@ -108,6 +109,9 @@ $groupBehavior = $block->getGroupBehaviour() ? $block->getGroupBehaviour() : '{"
 		</div>
 	</div>
 </header>
+
+
+
 
 
 

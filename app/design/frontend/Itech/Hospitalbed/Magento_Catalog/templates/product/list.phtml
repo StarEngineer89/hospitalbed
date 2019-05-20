@@ -15,6 +15,11 @@ use Magento\Framework\App\Action\Action;
  * @var $block \Magento\Catalog\Block\Product\ListProduct
  */
 ?>
+<div class="page-title-wrapper">
+    <h1 class="page-title">
+        <span class="base" data-ui-id="page-title-wrapper">Hospital Beds</span></h1>
+</div>
+
 <?php
 $_productCollection = $block->getLoadedProductCollection();
 $_helper = $this->helper('Magento\Catalog\Helper\Output');
@@ -22,7 +27,8 @@ $_helper = $this->helper('Magento\Catalog\Helper\Output');
 <?php if (!$_productCollection->count()): ?>
     <div class="message info empty"><div><?= /* @escapeNotVerified */ __('We can\'t find products matching the selection.') ?></div></div>
 <?php else: ?>
-    <?= $block->getToolbarHtml() ?>
+
+    <?php echo $block->getToolbarHtml(); ?>
     <?= $block->getAdditionalHtml() ?>
     <?php
     if ($block->getMode() == 'grid') {
