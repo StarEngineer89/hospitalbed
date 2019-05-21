@@ -15,9 +15,15 @@ use Magento\Framework\App\Action\Action;
  * @var $block \Magento\Catalog\Block\Product\ListProduct
  */
 ?>
+<?php 
+    $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+    $category = $objectManager->get('Magento\Framework\Registry')->registry('current_category');//get current category
+    //echo $category->getId();
+    
+?>
 <div class="page-title-wrapper">
     <h1 class="page-title">
-        <span class="base" data-ui-id="page-title-wrapper">Hospital Beds</span></h1>
+        <span class="base" data-ui-id="page-title-wrapper"><?php echo $category->getName();?></span></h1>
 </div>
 
 <?php

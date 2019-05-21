@@ -47,13 +47,16 @@ $groupBehavior = $block->getGroupBehaviour() ? $block->getGroupBehaviour() : '{"
     	$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
 		$storeManager = $objectManager->get('\Magento\Store\Model\StoreManagerInterface');
 		$base_url = $storeManager->getStore()->getBaseUrl();
+		$_logo = $objectManager->get('\Magento\Theme\Block\Html\Header\Logo');  
+		 $logo_url = $_logo->getLogoSrc();
+		//echo $logo_url;
 	?>
 	<div class="mid_header">
 		<div class="container">
 			<div class="logo">
-				<?php 
-				    echo $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('header_logo')->toHtml();
-                ?>
+				
+				<a href="<?php echo $base_url; ?>"><img src="<?php echo $logo_url;?>"></a>
+				
 			</div>
 			<div class="header_mid_inner">
 				<?php 
@@ -88,7 +91,7 @@ $groupBehavior = $block->getGroupBehaviour() ? $block->getGroupBehaviour() : '{"
 
 			<div class="header_search_section">
 				<div class="block block-content">
-        <form class="form minisearch" id="search_mini_form" action="http://134.209.148.55/hospitalbed/catalogsearch/result/" method="get">
+        <form class="form minisearch" id="search_mini_form" action=" <?php echo $block->getBaseUrl(); ?>catalogsearch/result/" method="get">
             <div class="field search">
                 <div class="control">
                     <input id="search" type="text" name="q" value="" placeholder="Search entire store here..." class="input-text" maxlength="128" role="combobox" aria-haspopup="false" aria-autocomplete="both" autocomplete="off">
@@ -108,7 +111,6 @@ $groupBehavior = $block->getGroupBehaviour() ? $block->getGroupBehaviour() : '{"
 		</div>
 	</div>
 </header>
-
 
 
 
