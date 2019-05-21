@@ -5,13 +5,13 @@
 			<block class="Magento\Catalog\Block\Product\View" name="mattress.tab" template="Product_CustomTab::mattress.phtml" group="detailed_info" >
                 <arguments>
                     <argument translate="true" name="title" xsi:type="string">Mattress Options</argument>
-                    <argument name="sort_order" xsi:type="string">40</argument>
+                    <argument name="sort_order" xsi:type="string">11</argument>
                 </arguments>
             </block>
 			<block class="Magento\Catalog\Block\Product\View" name="bed_rail.tab" template="Product_CustomTab::bed_rail.phtml" group="detailed_info" >
                 <arguments>
                     <argument translate="true" name="title" xsi:type="string">Bed Rail Options</argument>
-                    <argument name="sort_order" xsi:type="string">50</argument>
+                    <argument name="sort_order" xsi:type="string">12</argument>
                 </arguments>
             </block>
         </referenceBlock>

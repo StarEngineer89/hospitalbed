@@ -7,6 +7,7 @@
 // @codingStandardsIgnoreFile
 
 ?>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <?php
 
 /**
@@ -59,14 +60,12 @@ $groupBehavior = $block->getGroupBehaviour() ? $block->getGroupBehaviour() : '{"
 	                echo $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('header_mid')->toHtml();
 	            ?>
 			</div>
-			<div class="header_cart">
-				<a href="Javascript:void()">
-					<span class="cart_icon"><span class="cart_price"><a href="<?php echo $block->getBaseUrl(); ?>checkout/cart/">Cart <strong>$<?php  echo $this->getLayout()->createBlock('Magento\Checkout\Block\Cart\Sidebar')
-          			->setTemplate('Magento_Checkout::cart/minicart.phtml')->toHtml(); ?></strong></span></span>
-					
-					<?php  $counter = $this->helper('\Magento\Checkout\Helper\Cart'); ?><?php //echo $counter->getItemsCount();?>
-				</a>
-			</div>
+			
+				<?php  echo $block->getLayout()
+		          ->createBlock('Magento\Checkout\Block\Cart\Sidebar')
+		          ->setTemplate('Magento_Checkout::cart/minicart.phtml')
+		          ->toHtml(); ?>
+			
 		</div>
 	</div>
 	<div class="header_third">
