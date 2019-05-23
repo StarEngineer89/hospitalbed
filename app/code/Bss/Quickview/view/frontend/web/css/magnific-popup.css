@@ -10,6 +10,8 @@
   background: #0b0b0b;
   opacity: 0.8; }
 
+  .bss_quickview-catalog_product-view .columns{ width: 100%; }
+
 .mfp-wrap {
   top: 0;
   left: 0;
