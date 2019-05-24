@@ -1,3 +1,4 @@
+<style>
 body {
         font-family: Open Sans;
         font-size:14px;
@@ -5,6 +6,41 @@ body {
     body .page-products .products-grid .product-item:nth-child(3n+1) {
     margin-left: 0;
 }
+/**********mini cart*****************/
+body .minicart-wrapper {
+    display: inline-block;
+    position: inherit!important;
+    float: right;
+    margin: 0 0 0 0 !important;
+}
+.mid_header .minicart-wrapper .action.showcart{ display : none; }
+.sections.nav-sections { display: none; }
+.block.block-search { display: none; }
+.page-header .panel.wrapper { display: none; }
+.page-header .header .logo { display: none; }
+.page-header .header .compare { display: none; }
+.page-header .header .minicart-wrapper { position: inherit; margin: 0px !important; }
+.page-header .header .minicart-wrapper .action.showcart {   padding: 10px 25px 10px 10px;  margin: 84px -125px; }
+.page-header .header .minicart-wrapper .block-minicart{ margin-top: 138px !important; margin-right: 32px !important; }
+
+@media (min-width: 768px), print{
+.header.content {
+    padding: 0px 20px 0!important;
+}}
+.block-new-products-list .bss-bt-quickview {
+    display: none;
+}
+.catalog-product-view .field.choice.admin__field.admin__field-option.required {
+    width: 450px;
+}
+.block-new-products-list .bss-bt-quickview {
+    display: none;
+}
+span.counter.qty {
+    float: left;
+}
+.minicart-wrapper .action.showcart .counter.qty { border-radius: 50%; }
+/************end minicart*********************/
 .field.choice.admin__field.admin__field-option.required {
     margin: 0 !important;
 }
@@ -12,6 +48,7 @@ body {
     font-size: 14px;
     line-height: 18px;
 }
+
 body .page-layout-1column body .product-info-main {
 
     width: 49% !important;
@@ -191,18 +228,16 @@ body dl, body ol, body ul {
     left: -20px;
     padding: 10px 10px 10px 11px;
 }
-.page-header {
-        display: none;
-    }
-    .sections.nav-sections {
-        display: none;
-    }
+
 .minicart-wrapper .action.showcart::before {
    background: url(pub/media/header/basket_icon.png) no-repeat 0 4px;
     width: 23px;
     height: 28px;
     content: '';
 }
+
+.minicart-wrapper .action.showcart.active:before{ content: ''; }
+
 .search-icon {
   background: url(pub/media/header/search.png);
     width: 23px;
@@ -326,7 +361,7 @@ body .block.newsletter {
     border: 1px solid #e6e6e6;
 }
 .item.product.product-item {
-    width: 25% !important;
+    width: 100% !important;
 }
 .product.details.product-item-details {
     padding: 10px;
@@ -391,12 +426,7 @@ body .block.newsletter .actions {
     right: 0;
     float: right;
 }
-body .minicart-wrapper {
-    display: inline-block;
-    position: absolute;
-    float: right;
-    margin: 0 0 0 0 !important;
-}
+
     .header_cart a .cart_price {
         color: #fff;
         text-transform: uppercase;
@@ -1299,6 +1329,27 @@ table tr {
     min-height: 310px;
     float: left;
 }
+.product-label {
+    position: absolute;
+    z-index: 999;
+}
+.product-label .sticker.top-right {
+    color: #ffffff;
+    background-color: #e5534c;
+    min-width: 30px;
+    height: 29px;
+    line-height: 29px;
+    display: block;
+    margin-top: 38px;
+}
+.product-label .sticker span {
+    padding: 0 10px 0 14px;
+    display: block;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: 600;
+}
 
 
 
@@ -1405,7 +1456,7 @@ a.action.showcart {
 span.product-image-wrapper {
     padding-bottom: 100%!important;
 }
-span.product-image-container {
+.products-grid .product-image-container {
     width: 100%!important;
 }
 .toolbar-products {
@@ -1448,10 +1499,7 @@ span.limiter-text {
 select#limiter {
     background: #fff;
 }
-.minicart-wrapper .action.showcart {
-    position: relative;
-    padding: 10px 25px 10px 10px;
-}
+
 .minicart-wrapper .action.showcart .text {
     height: auto;
     width: auto;
@@ -1519,7 +1567,7 @@ span.sticker2.top-right2 {
     border-left-color: #ffae00;
 }
 .product-label .sticker::before {
-    border-width: 0 0 29px 17px;
+    border-width: 0 0 28px 17px;
     right: -16px;
 }
 .product-label .sticker.top-right::before {
@@ -1552,10 +1600,16 @@ span.sticker2.top-right2 {
     padding: 0 0 0 15px;
 }
 
+strong.product.name.product-item-name {
+    height: 35px;
+}
 
-
-
-
+.block.block-wishlist .block-title {
+    display: none;
+}
+.block.block-wishlist .block-content {
+    display: none;
+}
 @media only screen and (min-width: 640px) {
     .columns .block.widget .products-grid .product-item .product-item-inner, 
     body .page-layout-1column .block.widget .products-grid .product-item .product-item-inner {
@@ -1797,6 +1851,7 @@ span.sticker2.top-right2 {
     
 }
 
+</style>
 
 
 

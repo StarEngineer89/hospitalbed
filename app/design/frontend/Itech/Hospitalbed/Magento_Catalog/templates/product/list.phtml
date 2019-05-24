@@ -6,9 +6,7 @@
 use Magento\Framework\App\Action\Action;
 
 // @codingStandardsIgnoreFile
-//$priceModel = $block->getPriceType('regular_price');
-//$finalPriceModel = $block->getPriceType('final_price');
-//$percentage = ($priceModel*100)/$finalPriceModel;
+
 ?>
 <?php
 /**
@@ -17,20 +15,19 @@ use Magento\Framework\App\Action\Action;
  * @var $block \Magento\Catalog\Block\Product\ListProduct
  */
 ?>
-<?php 
-    $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
-    $category = $objectManager->get('Magento\Framework\Registry')->registry('current_category');//get current category
-    //echo $category->getId();
-    
+<?php
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$category = $objectManager->get('Magento\Framework\Registry')->registry('current_category');//get current category
+//echo $category->getId();
 ?>
 <div class="page-title-wrapper">
     <h1 class="page-title">
-        <span class="base" data-ui-id="page-title-wrapper"><?php echo $category->getName();?></span></h1>
+        <span class="base" data-ui-id="page-title-wrapper"><?php echo $category->getName();?></span>
+    </h1>
 </div>
-
 <?php
-$_productCollection = $block->getLoadedProductCollection();
-$_helper = $this->helper('Magento\Catalog\Helper\Output');
+    $_productCollection = $block->getLoadedProductCollection();
+    $_helper = $this->helper('Magento\Catalog\Helper\Output');
 ?>
 <?php if (!$_productCollection->count()): ?>
     <div class="message info empty"><div><?= /* @escapeNotVerified */ __('We can\'t find products matching the selection.') ?></div></div>
@@ -58,45 +55,38 @@ $_helper = $this->helper('Magento\Catalog\Helper\Output');
     <div class="products wrapper <?= /* @escapeNotVerified */ $viewMode ?> products-<?= /* @escapeNotVerified */ $viewMode ?>">
         <ol class="products list items product-items">
             <?php /** @var $_product \Magento\Catalog\Model\Product */ ?>
-            <?php foreach ($_productCollection as $_product): ?>
-                <?php  $beddeck = $_product->getData('bed_deck');
-                      $weightcapacity = $_product->getData('weight_capacity');
-                      $warranty = $_product->getData('warranty');
-                      $maximumbackangle = $_product->getData('maximum_back_angle');
-                      $bedsize = $_product->getData('bed_size');
-                      $trendelenburg = $_product->getData('trendelenburg');
-                      $heightrange = $_product->getData('height_range');
-                       $fromdate = $_product->getData('custom_design_from');
-                        $todate = $_product->getData('custom_design_to');
+            <?php foreach ($_productCollection as $_product):   
+                $beddeck = $_product->getData('bed_deck');
+                $weightcapacity = $_product->getData('weight_capacity');
+                $warranty = $_product->getData('warranty');
+                $maximumbackangle = $_product->getData('maximum_back_angle');
+                $bedsize = $_product->getData('bed_size');
+                $trendelenburg = $_product->getData('trendelenburg');
+                $heightrange = $_product->getData('height_range');
+                $fromDate = $_product->getNewsFromDate();
+                $toDate = $_product->getNewsToDate();
+                //echo $_product->getUpdatedAt();
 
+                $a=$_product->getSpecialPrice();
+                $b=$_product->getPrice();
+                $x=($a*100)/$b;
+                $pecntage=100-$x;
 
-                ?>
-                
- <?php $a=$_product->getSpecialPrice();
-          $b=$_product->getPrice();
-          $x=($a*100)/$b;
-          $pecntage=100-$x;
-          ?>
-            <li class="item product product-item">
-                <?php $date1 = "custom_design_from"; 
-                $date2 = "2019/05/25";
+               // $date1 = "2019/05/22"; 
+                //$date2 = "2019/05/25";
                 $date3 = date("Y/m/d");
-                 $dateTimestamp1 = strtotime($date1);
-                 $dateTimestamp2 = strtotime($date2);
-                  $dateTimestamp3 = strtotime($date3);
-                 /*echo "$dateTimestamp1";
-                 echo "$dateTimestamp2";
-                 echo "$dateTimestamp3";*/
+                $dateTimestamp1 = strtotime($fromDate);
+                $dateTimestamp2 = strtotime($toDate);
+                $dateTimestamp3 = strtotime($date3);
                 ?>
-                <?php 
-                /* $new_form_date="1000";
-                 $new_to_date="1005";
-                 $curent_date = "1002";*/?>
-                
+            <li class="item product product-item">
 
-                <div class="date"> <?php if($dateTimestamp3>$dateTimestamp1 and $dateTimestamp3<$dateTimestamp2)
-                       ?><span class="sticker2 top-right2"><?php echo "New";?></span></div>
-                <?php if ($_product->getSpecialPrice()): ?>
+                 <div class="date"> <?php if($dateTimestamp3>$dateTimestamp1 and $dateTimestamp3<$dateTimestamp2){?><span class="sticker2 top-right2"><?php echo "New";?></span>
+                 <?php }else{
+                    
+                 }?>
+                   </div>
+                 <?php if ($_product->getSpecialPrice()): ?>
                 <div class="product-label">
                                 <span class="sticker top-right"><span class="labelsale"><?php echo $pecntage;?>%</span></span>                            </div>
                                 <?php else: ?>
@@ -123,13 +113,11 @@ $_helper = $this->helper('Magento\Catalog\Helper\Output');
                                 <?= /* @escapeNotVerified */ $_helper->productAttribute($_product, $_product->getName(), 'name') ?>
                             </a>
                         </strong>
-          
                         <table>
-
 <tbody>
 <tr>
 <td>Weight Capacity:</td>
-<td><?php echo $todate; ?></td>
+<td><?php echo $weightcapacity; ?></td>
 </tr>
 <tr>
 <td>Height Range:</td>
@@ -156,7 +144,7 @@ $_helper = $this->helper('Magento\Catalog\Helper\Output');
 <td><?php echo $warranty; ?></td>
 </tr>
 </tbody>
-</table>  <?php echo $priceModel = $block->getPriceType('regular_price');?>
+</table>  
 
                         <?= $block->getReviewsSummaryHtml($_product, $templateType) ?>
                         <?= /* @escapeNotVerified */ $block->getProductPrice($_product) ?>
