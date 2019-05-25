@@ -10,17 +10,17 @@
   background: #0b0b0b;
   opacity: 0.8; }
 
-.bss_quickview-catalog_product-view .columns{ width: 100%; }
 
 
-.bss_quickview-catalog_product-view catalog-product-view #maincontent .columns {
+
+.bss_quickview-catalog_product-view.catalog-product-view #maincontent .columns {
   width: 100%;
 }
-.bss_quickview-catalog_product-view .catalog-product-view #maincontent .column.main {
+.bss_quickview-catalog_product-view.catalog-product-view #maincontent .column.main {
   width: 100%;
   float: right;
 }
-.bss_quickview-catalog_product-view .catalog-product-view #maincontent .product-info-main {
+.bss_quickview-catalog_product-view.catalog-product-view #maincontent .product-info-main {
   width: 50%;
   padding: 0;
 }
