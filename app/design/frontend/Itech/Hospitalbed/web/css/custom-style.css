@@ -6,6 +6,10 @@ body {
     margin-left: 0;
 }
 /**********mini cart*****************/
+.page-products .column.main .toolbar:nth-child(6) .limiter {
+    position: inherit;
+    left: auto;
+}
 body .minicart-wrapper {
     display: inline-block;
     float: right;
@@ -2193,9 +2197,6 @@ strong.product.name.product-item-name {
 
 	
 }
-
-
-
 
 
 
