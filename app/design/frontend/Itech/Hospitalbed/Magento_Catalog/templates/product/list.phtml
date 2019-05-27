@@ -71,6 +71,7 @@ $category = $objectManager->get('Magento\Framework\Registry')->registry('current
                 $b=$_product->getPrice();
                 $x=($a*100)/$b;
                 $pecntage=100-$x;
+                $percent  = round($pecntage,2);
 
                // $date1 = "2019/05/22"; 
                 //$date2 = "2019/05/25";
@@ -85,7 +86,7 @@ $category = $objectManager->get('Magento\Framework\Registry')->registry('current
                  <?php } ?>
                  <?php if ($_product->getSpecialPrice()): ?>
                 <div class="product-label">
-                                <span class="sticker top-right"><span class="labelsale"><?php echo $pecntage;?>%</span></span>                            </div>
+                                <span class="sticker top-right"><span class="labelsale"><?php echo $percent;?>%</span></span>                            </div>
                                 <?php endif; ?>
                 <div class="product-item-info" data-container="product-<?= /* @escapeNotVerified */ $viewMode ?>">
                     <?php

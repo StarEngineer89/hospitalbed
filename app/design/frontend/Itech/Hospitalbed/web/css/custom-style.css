@@ -1,4 +1,3 @@
-<style>
 body {
         font-family: Open Sans;
         font-size:14px;
@@ -19,8 +18,23 @@ body .minicart-wrapper {
 .page-header .header .compare { display: none; }
 .page-header .header .minicart-wrapper { position: relative; margin: 0px !important; }
 .page-header .header .minicart-wrapper .action.showcart {   padding: 10px 25px 10px 10px;  margin: 0; position: inherit; left: 0; }
-.page-header .header .minicart-wrapper .block-minicart{ margin-top: 138px !important; margin-right: 32px !important; }
-
+.page-header .header .minicart-wrapper .block-minicart{ margin-top: 10px !important; margin-right: 32px !important; }
+.minicart-items-wrapper span.minicart-price .price {
+    float: left;
+}
+.minicart-items-wrapper .minicart-items .product-item-details .details-qty {
+    margin-top: 10px;
+    margin-right: 70px;
+}
+.minicart-items-wrapper .minicart-price span.price {
+    margin-top: 12px!important;
+}
+#mini-cart strong.product-item-name {
+    margin-right: 10px;
+}
+#mini-cart .minicart-items .action.edit, .minicart-items .action.delete {
+    margin-right: 10px;
+}
 @media (min-width: 768px), print{
 .header.content {
     padding: 0px 20px 0!important;
@@ -844,6 +858,7 @@ input.input-text, select, textarea {
     min-height: 855px;
     padding: 0;
     margin: 0;
+    position: relative;
 }
 .page-products .products-grid .product-items .item.product.product-item .product-item-inner {
     position: relative;
@@ -1560,8 +1575,9 @@ span.sticker2.top-right2 {
 .page-products ol.products .product-item .date,
 .cms-home .product-items .date {
     float: left;
-    position: relative;
+    position: absolute;
     z-index: 9;
+    top: 0;
 }
 .page-products ol.products .product-item .date::before,
 .cms-home .product-items .date::before {
@@ -2091,6 +2107,10 @@ strong.product.name.product-item-name {
     .mid_header .logo {
         width: 150px;
     }
+    .mid_header .header_mid_inner .unpublished_rates {
+        bottom: 20px;
+        margin: 0;
+    }
     
     
 }
@@ -2103,11 +2123,50 @@ strong.product.name.product-item-name {
         font-size: 11px;
         padding: 0 7px;
     }
+    .header_third #search_mini_form input.input-text {
+        height: 33px;
+        width: 130px;
+        font-size: 11px;
+    }
+    .header_third #search_mini_form button.search {
+        height: 34px;
+        padding: 3px 7px 0 2px;
+    }
+    .header_third .header_categories > a {
+        padding: 13px 10px;
+    }
+    .live_chat img {
+        width: 80px;
+    }
+    .header_search_section .block {
+        margin: 0;
+    }
+    .top_header ul li a {
+        font-size: 11px;
+        padding: 0 5px;
+        text-transform: capitalize;
+    }
+    .top_header ul li a::before {
+        content: "";
+        position: absolute;
+        height: 15px;
+        width: 1px;
+        background: rgba(100,100,100,0.1);
+        left: 0px;
+        top: 3px;
+        opacity: 0;
+    }
+    .mid_header .header_mid_inner .call_us_free {
+        font-size: 11px;
+    }
+    .mid_header .header_mid_inner .unpublished_rates {
+        font-size: 11px;
+    }
 
     
 }
 
-</style>
+
 
 
 
