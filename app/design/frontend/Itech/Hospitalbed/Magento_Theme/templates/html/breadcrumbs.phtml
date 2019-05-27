@@ -7,21 +7,6 @@
 // @codingStandardsIgnoreFile
 
 ?>
-<?php
-$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
-$xmlLayout = $objectManager->get(\Magento\Framework\App\View::class);
-$data = $xmlLayout->getLayout()->getUpdate()->getHandles();
-if($data[1]== 'cms_index_index'){ ?>
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-    <script src="//cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
-    <script>
-    jQuery(document).ready(function(){
-      jQuery('.slider').bxSlider();
-    });
-  </script>
-<?php }
-?>
 <?php if ($crumbs && is_array($crumbs)) : ?>
 <div class="back-color">
 <main class="page-main1">
