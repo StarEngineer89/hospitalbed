@@ -46,6 +46,7 @@ use Magento\Framework\App\Action\Action;
                 $b=$_item->getPrice();
                 $x=($a*100)/$b;
                 $pecntage=100-$x;
+                $percent  = round($pecntage,2);
 
                // $date1 = "2019/05/22"; 
                 //$date2 = "2019/05/25";
@@ -59,7 +60,7 @@ use Magento\Framework\App\Action\Action;
                  <?php } ?>
                        <?php if ($_item->getSpecialPrice()): ?>
                 <div class="product-label">
-                                <span class="sticker top-right"><span class="labelsale"><?php echo $pecntage;?>%</span></span>                            </div>
+                                <span class="sticker top-right"><span class="labelsale"><?php echo $percent;?>%</span></span>                            </div>
                                 <?php endif; ?>
 
                         <div class="product-item-info">
