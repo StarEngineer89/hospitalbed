@@ -27,14 +27,11 @@
                        />
             </div>
         </div>
-        <?php  $vender = $_product->getData('vender');?>
-        <?php endif; ?>
-       
-
+              <?php  $vender = $_product->getData('vender');?>
+              <?php endif; ?>
          <div class="price">
-          <?php /* @escapeNotVerified */ echo $block->getProductPrice($_product) ?>     
+           <?php /* @escapeNotVerified */ echo $block->getProductPrice($_product) ?>     
         </div>
-
         <div class="actions">
             <button type="submit"
                     title="<?= /* @escapeNotVerified */ $buttonTitle ?>"
@@ -47,58 +44,50 @@
     </div>
 </div>
 <?php endif; ?>
-</div>
-<div class="rte main-product-description-product">   
-                       
-                          <div style="text-align: center;"><img src="//cdn.shopify.com/s/files/1/0082/7863/8672/files/Need_Help_Choosing_Bed.jpg?v=1550758857" alt=""></div>
-<div style="text-align: left;"></div>
-
-                       
+<
+                <div class="rte main-product-description-product">   
+                    <div style="text-align: center;">
+              <?php 
+                 echo $block->getLayout()
+               ->createBlock('Magento\Cms\Block\Block')
+               ->setBlockId('product_page_banner')
+               ->toHtml(); 
+               ?>
                     </div>
+                      <div style="text-align: left;"></div>
+                </div>
                     <div class="prod_sku_vend">
-                    
                     <div class="variant-sku"></div>
-                    
-                     
-                
                     <div class="product-vendor"><strong>Vendor: </strong><?php echo $vender; ?></div>
-                    
-                     
                     <div id="variant-inventory">
-
-                    <?php $qty_p = $_product->getExtensionAttributes()->getStockItem()->getQty(); ?>
-                    <?php if($qty_p > 0){ ?>
+                      <?php $qty_p = $_product->getExtensionAttributes()->getStockItem()->getQty(); ?>
+                      <?php if($qty_p > 0){ ?>
                       <span class="in-stock">
                          <b>In Stock! Delivered in 3 to 5 Business Days</b>
-                      </span>
-                     <?php } else{ ?>
-                      <span class="out-of-stock">
+                       </span>
+                      <?php } else{ ?>
+                       <span class="out-of-stock">
                          <b>Out of Stock!</b>
-                      </span>
-                    <?php } ?>
-
+                       </span>
+                      <?php } ?>
                     </div>
-                    
-                  </div>
-                
-                <div class="review_row clearfix">
-                    
-                    <span class="shopify-product-reviews-badge" data-id="2470816743504"></span>
-                    
+                   </div>
+     <div class="review_row clearfix">
+           <span class="shopify-product-reviews-badge" data-id="2470816743504"></span>
+        <div class="share">
+          <div class="social-sharing">
+					   <ul>
+        					<li><a href="https://www.facebook.com/"> <i class="fa fa-facebook"></i></a></li>
+        					<li><a href="https://twitter.com/"><i class="fa fa-twitter"></i></a></li>
+        					<li><a href="https://plus.google.com"><i class="fa fa-google-plus"></i></a></li>
+        					<li><a href="https://in.pinterest.com/"><i class="fa fa-pinterest"></i></a></li>
+					   </ul>
+         </div>
+        </div>
 
-                    <div class="share">
-                      <div class="social-sharing">
-                        <ul>
-                            <li><a target="_blank" href="//www.facebook.com/sharer/sharer.php?u=https://expresshospitalbeds.com/products/medline-medlite-full-electric-hospital-bed-set"><i class="fa fa-facebook"></i></a></li> 
-  <li><a target="_blank" href="//twitter.com/intent/tweet?url=https://expresshospitalbeds.com/products/medline-medlite-full-electric-hospital-bed-set&amp;via=&amp;text=Medline Medlite Full Electric Hospital Bed Set"><i class="fa fa-twitter"></i></a></li>
-  <li><a target="_blank" href="//plusone.google.com/_/+1/confirm?hl=en&amp;url=https://expresshospitalbeds.com/products/medline-medlite-full-electric-hospital-bed-set"><i class="fa fa-google-plus"></i></a></li>
-  <li><a href="javascript:void((function()%7Bvar%20e=document.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','//assets.pinterest.com/js/pinmarklet.js?r='+Math.random()*99999999);document.body.appendChild(e)%7D)());"><i class="fa fa-pinterest"></i></a></li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                   
-<script type="text/x-magento-init">
+        
+     </div>
+     <script type="text/x-magento-init">
     {
         "#product_addtocart_form": {
             "Magento_Catalog/js/validate-product": {}
