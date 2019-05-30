@@ -71,7 +71,7 @@ $category = $objectManager->get('Magento\Framework\Registry')->registry('current
                 $b=$_product->getPrice();
                 $x=($a*100)/$b;
                 $pecntage=100-$x;
-                $percent  = round($pecntage,2);
+                 $percent  = round($pecntage,2);
 
                // $date1 = "2019/05/22"; 
                 //$date2 = "2019/05/25";
@@ -79,14 +79,15 @@ $category = $objectManager->get('Magento\Framework\Registry')->registry('current
                 $dateTimestamp1 = strtotime($fromDate);
                 $dateTimestamp2 = strtotime($toDate);
                 $dateTimestamp3 = strtotime($date3);
+                $marg = '';
                 ?>
             <li class="item product product-item">
                  <?php if($dateTimestamp3>$dateTimestamp1 and $dateTimestamp3<$dateTimestamp2){ ?>
-                 <div class="date"> <span class="sticker2 top-right2"><?php echo "New";?></span> </div>
-                 <?php } ?>
+                 <div class="date"> <span class="sticker2 top-right2 "><?php echo "New";?></span> </div>
+                 <?php } else{ $marg = 'style="margin-top: 0px;"'; } ?>
                  <?php if ($_product->getSpecialPrice()): ?>
                 <div class="product-label">
-                                <span class="sticker top-right"><span class="labelsale"><?php echo $percent;?>%</span></span>                            </div>
+                                <span class="sticker top-right" <?php echo $marg;?>><span class="labelsale"><?php echo $percent;?>%</span></span>                            </div>
                                 <?php endif; ?>
                 <div class="product-item-info" data-container="product-<?= /* @escapeNotVerified */ $viewMode ?>">
                     <?php
