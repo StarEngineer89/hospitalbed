@@ -88,6 +88,11 @@ $category = $objectManager->get('Magento\Framework\Registry')->registry('current
                 <div class="product-label">
                                 <span class="sticker top-right"><span class="labelsale"><?php echo $percent;?>%</span></span>                            </div>
                                 <?php endif; ?>
+                                <?php if (empty($dateTimestamp3>$dateTimestamp1 and $dateTimestamp3<$dateTimestamp2)){ 
+                              echo "hello";
+
+                                }?>
+
                 <div class="product-item-info" data-container="product-<?= /* @escapeNotVerified */ $viewMode ?>">
                     <?php
                     $productImage = $block->getImage($_product, $imageDisplayArea);

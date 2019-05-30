@@ -1,3 +1,4 @@
+
 body {
         font-family: Open Sans;
         font-size:14px;
@@ -167,7 +168,7 @@ body .block.newsletter .action.subscribe {
     font-weight: normal;
 }
 .block.newsletter input {
-    border-radius: 45px;
+    border-radius: 20px 0px 0px 20px;
     padding: 10px 0 10px 30px;
     height: auto !important;
     border: 0;
@@ -400,11 +401,8 @@ footer .block-title strong {
 
 }
 body .block.newsletter .actions {
-
-    display: inline-block;
     vertical-align: top;
     width: 21%;
-    float: right;
     margin: -40px 0 0 0;
     z-index: 9;
     position: relative;
@@ -595,6 +593,7 @@ text-transform: uppercase;
 }
     .live_chat {
         float: right;
+        margin-right: 13px;
     }
     .live_chat img {
         width: 100px;
@@ -1378,6 +1377,9 @@ table tr {
 body .page-header {
     margin: 0;
 }
+.page-products .column.main .toolbar .pages .action::before {
+    font-size: 12px;
+}
 
 
 
@@ -2137,6 +2139,10 @@ strong.product.name.product-item-name {
     .catalog-product-view #maincontent .product.data.items {
         margin: 0;
     }
+    .page-products .column.main .toolbar:nth-child(6) .pages {
+        float: left;
+        margin: 0;
+    }
     
 }
 
@@ -2263,6 +2269,12 @@ strong.product.name.product-item-name {
     }
 
     
+}
+.bss-bt-quickview a.bss-quickview {
+    width: 80%;
+}
+.bss-bt-quickview a.bss-quickview:hover{
+    width: 80%;
 }
 
 
