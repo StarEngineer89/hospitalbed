@@ -54,12 +54,13 @@ use Magento\Framework\App\Action\Action;
                 $dateTimestamp1 = strtotime($fromDate);
                 $dateTimestamp2 = strtotime($toDate);
                 $dateTimestamp3 = strtotime($date3);
+                $marg = '';
                 ?>
                  <?php if($dateTimestamp3>$dateTimestamp1 and $dateTimestamp3<$dateTimestamp2){ ?>
                  <div class="date"> <span class="sticker2 top-right2"><?php echo "New";?></span> </div>
-                 <?php } ?>
+                 <?php } else{ $marg = 'style="top: 0px;"'; } ?>
                        <?php if ($_item->getSpecialPrice()): ?>
-                <div class="product-label">
+                <div class="product-label" <?php echo $marg;?>>
                                 <span class="sticker top-right"><span class="labelsale"><?php echo $percent;?>%</span></span>                            </div>
                                 <?php endif; ?>
 

@@ -2271,10 +2271,19 @@ strong.product.name.product-item-name {
     
 }
 .bss-bt-quickview a.bss-quickview {
-    width: 80%;
+    width: 93%;
 }
-.bss-bt-quickview a.bss-quickview:hover{
-    width: 80%;
+.products .product-item .product-item-info:hover .bss-quickview {
+    left: 0 !important;
+    right: 0 !important;
+    margin: 0 auto;
+    width: 93% !important;
+}
+body .product-item .product-item-info:hover .bss-quickview {
+    left: 0 !important;
+    right: 0 !important;
+    margin: 0 auto;
+    width: 93% !important;
 }
 
 
