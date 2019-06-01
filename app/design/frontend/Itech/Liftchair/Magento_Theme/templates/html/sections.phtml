@@ -1,0 +1,124 @@
+<?php
+/**
+ * Copyright © 2017 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<?php
+
+/**
+*  General template for displaying group of blocks devided into sections
+*/
+
+$group = $block->getGroupName();
+$groupCss = $block->getGroupCss();
+$groupBehavior = $block->getGroupBehaviour() ? $block->getGroupBehaviour() : '{"tabs":{"openedState":"active"}}';
+?>
+<?php if ($detailedInfoGroup = $block->getGroupChildNames($group, 'getChildHtml')):?>
+    <div class="sections <?php /* @escapeNotVerified */ echo $groupCss ?>">
+        <?php $layout = $block->getLayout(); ?>
+        <div class="section-items <?php /* @escapeNotVerified */ echo $groupCss ?>-items" data-mage-init='<?php /* @escapeNotVerified */ echo $groupBehavior ?>'>
+            <?php foreach ($detailedInfoGroup as $name):?>
+                <?php
+                    $html = $layout->renderElement($name);
+                    if (!trim($html) && ($block->getUseForce() != true)) {
+                        continue;
+                    }
+                    $alias = $layout->getElementAlias($name);
+                    $label = $block->getChildData($alias, 'title');
+                ?>
+                <div class="section-item-title <?php /* @escapeNotVerified */ echo $groupCss ?>-item-title" data-role="collapsible">
+                    <a class="<?php /* @escapeNotVerified */ echo $groupCss ?>-item-switch" data-toggle="switch" href="#<?php /* @escapeNotVerified */ echo $alias; ?>"><?php /* @escapeNotVerified */ echo $label; ?></a>
+                </div>
+                <div class="section-item-content <?php /* @escapeNotVerified */ echo $groupCss ?>-item-content" id="<?php /* @escapeNotVerified */ echo $alias; ?>" data-role="content"><?php /* @escapeNotVerified */ echo $html; ?></div>
+            <?php endforeach;?>
+        </div>
+    </div>
+<?php endif; ?>
+
+
+<header class="main_header">
+	<?php 
+    	echo $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('header_top')->toHtml();
+    	$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+		$storeManager = $objectManager->get('\Magento\Store\Model\StoreManagerInterface');
+		$base_url = $storeManager->getStore()->getBaseUrl();
+		$_logo = $objectManager->get('\Magento\Theme\Block\Html\Header\Logo');  
+		 $logo_url = $_logo->getLogoSrc();
+		//echo $logo_url;
+	?>
+	<div class="mid_header">
+		<div class="container">
+			<div class="logo">
+				
+				<a href="<?php echo $base_url; ?>"><img src="<?php echo $logo_url;?>"></a>
+				
+			</div>
+			<div class="header_mid_inner">
+				<?php 
+	                echo $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('header_mid')->toHtml();
+	            ?>
+			</div>
+			
+				<?php  echo $block->getLayout()
+		          ->createBlock('Magento\Checkout\Block\Cart\Sidebar')
+		          ->setTemplate('Magento_Checkout::cart/minicart.phtml')
+		          ->toHtml(); ?>
+			
+		</div>
+	</div>
+	<div class="header_third">
+		<div class="container">
+			<div class="header_categories">
+				<a href="Javascript:void()">
+					<span class="categories_hamburg">
+						<span></span>
+						<span></span>
+						<span></span>
+					</span>
+					<h5>Categories</h5>
+				</a>
+				<div class="header_categories_dropdown">
+				<?php 
+                  echo $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('header-menu')->toHtml();
+              	?>
+				</div>
+			</div>
+
+			<div class="header_search_section">
+				<div class="block block-content">
+        <form class="form minisearch" id="search_mini_form" action=" <?php echo $block->getBaseUrl(); ?>catalogsearch/result/" method="get">
+            <div class="field search">
+                <div class="control">
+                    <input id="search" type="text" name="q" value="" placeholder="Search entire store here..." class="input-text" maxlength="128" role="combobox" aria-haspopup="false" aria-autocomplete="both" autocomplete="off">
+                    <div id="search_autocomplete" class="search-autocomplete"></div>
+                </div>
+            </div>
+            <div class="actions">
+                <button type="submit" title="Search" class="action search">
+                    <span class="search-icon"></span>
+                </button>
+            </div>
+        </form>
+    </div>
+				
+			</div>
+			<div class="live_chat"><a href="javascript:void()"><img src="<?php echo $base_url; ?>pub/media/header/live_chat_icon.png" alt="" ></a></div>
+		</div>
+	</div>
+</header>
+
+
+
+
+
+
+
+
+
+
+

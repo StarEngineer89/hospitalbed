@@ -1,0 +1,96 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/** @var $block \Magento\Catalog\Block\Product\View */
+?>
+<?php $_product = $block->getProduct(); ?>
+<?php $buttonTitle = __('Add to Cart'); ?>
+<?php if ($_product->isSaleable()): ?>
+<div class="box-tocart">
+    <div class="fieldset">
+        <?php if ($block->shouldRenderQuantity()): ?>
+        <div class="field qty">
+            <label class="label" for="qty"><span><?= /* @escapeNotVerified */ __('Qty') ?></span></label>
+            <div class="control">
+                <input type="number"
+                       name="qty"
+                       id="qty"
+                       value="<?= /* @escapeNotVerified */ $block->getProductDefaultQty() * 1 ?>"
+                       title="<?= /* @escapeNotVerified */ __('Qty') ?>"
+                       class="input-text qty"
+                       data-validate="<?= $block->escapeHtml(json_encode($block->getQuantityValidators())) ?>"
+                       />
+            </div>
+        </div>
+              <?php  $vender = $_product->getData('vender');?>
+              <?php endif; ?>
+         <div class="price">
+           <?php /* @escapeNotVerified */ echo $block->getProductPrice($_product) ?>     
+        </div>
+        <div class="actions">
+            <button type="submit"
+                    title="<?= /* @escapeNotVerified */ $buttonTitle ?>"
+                    class="action primary tocart"
+                    id="product-addtocart-button">
+                <span><?= /* @escapeNotVerified */ $buttonTitle ?></span>
+            </button>
+            <?= $block->getChildHtml('', true) ?>
+        </div>
+    </div>
+</div>
+<?php endif; ?>
+
+                <div class="rte main-product-description-product">   
+                    <div style="text-align: center;">
+              <?php 
+                 echo $block->getLayout()
+               ->createBlock('Magento\Cms\Block\Block')
+               ->setBlockId('product_page_banner')
+               ->toHtml(); 
+               ?>
+                    </div>
+                      <div style="text-align: left;"></div>
+                </div>
+                    <div class="prod_sku_vend">
+                    <div class="variant-sku"></div>
+                    <div class="product-vendor"><strong>Vendor: </strong><?php echo $vender; ?></div>
+                    <div id="variant-inventory">
+                      <?php $qty_p = $_product->getExtensionAttributes()->getStockItem()->getQty(); ?>
+                      <?php if($qty_p > 0){ ?>
+                      <span class="in-stock">
+                         <b>In Stock! Delivered in 3 to 5 Business Days</b>
+                       </span>
+                      <?php } else{ ?>
+                       <span class="out-of-stock">
+                         <b>Out of Stock!</b>
+                       </span>
+                      <?php } ?>
+                    </div>
+                   </div>
+     <div class="review_row clearfix">
+           <span class="shopify-product-reviews-badge" data-id="2470816743504"></span>
+        <div class="share">
+          <div class="social-sharing">
+					   <ul>
+        					<li><a href="https://www.facebook.com/"> <i class="fa fa-facebook"></i></a></li>
+        					<li><a href="https://twitter.com/"><i class="fa fa-twitter"></i></a></li>
+        					<li><a href="https://plus.google.com"><i class="fa fa-google-plus"></i></a></li>
+        					<li><a href="https://in.pinterest.com/"><i class="fa fa-pinterest"></i></a></li>
+					   </ul>
+         </div>
+        </div>
+
+        
+     </div>
+     <script type="text/x-magento-init">
+    {
+        "#product_addtocart_form": {
+            "Magento_Catalog/js/validate-product": {}
+        }
+    }
+</script>
