@@ -646,6 +646,9 @@ img.img-responsive.paypal {
     padding: 0 0 0 0;
 
 }
+.footer-primary .test:last-child {
+    margin-right: 0;
+}
 .main-row {
 
     border-top: 1px solid #4c4c4c;
