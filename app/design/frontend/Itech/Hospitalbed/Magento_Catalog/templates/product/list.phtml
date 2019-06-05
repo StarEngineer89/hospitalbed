@@ -22,7 +22,9 @@ $category = $objectManager->get('Magento\Framework\Registry')->registry('current
 ?>
 <div class="page-title-wrapper">
     <h1 class="page-title">
+         <?php if($category){ ?>
         <span class="base" data-ui-id="page-title-wrapper"><?php echo $category->getName();?></span>
+          <?php } ?>
     </h1>
 </div>
 <?php
