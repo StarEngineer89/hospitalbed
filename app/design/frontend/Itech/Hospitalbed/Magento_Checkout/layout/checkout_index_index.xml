@@ -448,5 +448,6 @@
         <referenceContainer name="page.messages" remove="true"/>
 
         <move element="header-mid-inner" destination="checkout.header.wrapper" after="logo"/>
+        <move element="minicart" destination="heckout.header.wrapper" after="header-mid-inner" />
     </body>
 </page>
