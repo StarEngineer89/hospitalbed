@@ -93,6 +93,11 @@ header.page-header .header_mid_inner ul li {
 .page-header .header .minicart-wrapper { position: relative; margin: 0px !important; }
 .page-header .header .minicart-wrapper .action.showcart { 	padding: 10px 25px 10px 10px;  margin: 0; position: inherit; left: 0; }
 .page-header .header .minicart-wrapper .block-minicart{ margin-top: 10px !important; margin-right: 12px !important; }
+.page-header .header .minicart-wrapper .action.viewcart {
+    background: #006bb4;
+    padding: 15px 50px;
+    margin-top: 10px;
+}
 .minicart-items-wrapper span.minicart-price .price {
     float: left;
 }
