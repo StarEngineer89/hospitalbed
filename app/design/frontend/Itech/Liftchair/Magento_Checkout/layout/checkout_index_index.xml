@@ -446,5 +446,7 @@
             </block>
         </referenceContainer>
         <referenceContainer name="page.messages" remove="true"/>
+
+        <move element="header-mid-inner" destination="checkout.header.wrapper" after="logo"/>
     </body>
 </page>
