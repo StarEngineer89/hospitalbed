@@ -7,6 +7,36 @@
 -->
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
-        <referenceBlock name="header.container" remove="true"/>
+        <referenceContainer name="header-wrapper">
+            <block class="Magento\Cms\Block\Block" name="header-mid-inner" after="logo">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">header_mid</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+
+        <referenceBlock name="header.links">
+            <block class="Magento\Framework\View\Element\Html\Link" name="specialoffers.link">
+                <arguments>
+                    <argument name="label" xsi:type="string" translate="false">Special Offers</argument>
+                    <argument name="path" xsi:type="string" translate="false">special-offers</argument>
+                </arguments>
+            </block>
+            <block class="Magento\Framework\View\Element\Html\Link" name="aboutus.link">
+                <arguments>
+                    <argument name="label" xsi:type="string" translate="false">About Us</argument>
+                    <argument name="path" xsi:type="string" translate="false">about-us</argument>
+                </arguments>
+            </block>
+            <block class="Magento\Framework\View\Element\Html\Link" name="store.open.time" after="-">
+                <arguments>
+                    <argument name="label" xsi:type="string" translate="false">8AM - 10PM EST</argument>
+                    <argument name="path" xsi:type="string" translate="false">#</argument>
+                    <argument name="class" xsi:type="string" translate="false">top_header_time</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+
+        <move element="register-link" destination="header.links" after="authorization-link-login"/>
     </body>
 </page>

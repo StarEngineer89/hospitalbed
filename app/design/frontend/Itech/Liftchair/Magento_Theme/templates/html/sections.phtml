@@ -11,8 +11,8 @@
 <?php
 
 /**
-*  General template for displaying group of blocks devided into sections
-*/
+ *  General template for displaying group of blocks devided into sections
+ */
 
 $group = $block->getGroupName();
 $groupCss = $block->getGroupCss();
@@ -24,12 +24,12 @@ $groupBehavior = $block->getGroupBehaviour() ? $block->getGroupBehaviour() : '{"
         <div class="section-items <?php /* @escapeNotVerified */ echo $groupCss ?>-items" data-mage-init='<?php /* @escapeNotVerified */ echo $groupBehavior ?>'>
             <?php foreach ($detailedInfoGroup as $name):?>
                 <?php
-                    $html = $layout->renderElement($name);
-                    if (!trim($html) && ($block->getUseForce() != true)) {
-                        continue;
-                    }
-                    $alias = $layout->getElementAlias($name);
-                    $label = $block->getChildData($alias, 'title');
+                $html = $layout->renderElement($name);
+                if (!trim($html) && ($block->getUseForce() != true)) {
+                    continue;
+                }
+                $alias = $layout->getElementAlias($name);
+                $label = $block->getChildData($alias, 'title');
                 ?>
                 <div class="section-item-title <?php /* @escapeNotVerified */ echo $groupCss ?>-item-title" data-role="collapsible">
                     <a class="<?php /* @escapeNotVerified */ echo $groupCss ?>-item-switch" data-toggle="switch" href="#<?php /* @escapeNotVerified */ echo $alias; ?>"><?php /* @escapeNotVerified */ echo $label; ?></a>
@@ -41,76 +41,51 @@ $groupBehavior = $block->getGroupBehaviour() ? $block->getGroupBehaviour() : '{"
 <?php endif; ?>
 
 
-<header class="main_header">
-	<?php 
-    	echo $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('header_top')->toHtml();
-    	$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
-		$storeManager = $objectManager->get('\Magento\Store\Model\StoreManagerInterface');
-		$base_url = $storeManager->getStore()->getBaseUrl();
-		$_logo = $objectManager->get('\Magento\Theme\Block\Html\Header\Logo');  
-		 $logo_url = $_logo->getLogoSrc();
-		//echo $logo_url;
-	?>
-	<div class="mid_header">
-		<div class="container">
-			<div class="logo">
-				
-				<a href="<?php echo $base_url; ?>"><img src="<?php echo $logo_url;?>"></a>
-				
-			</div>
-			<div class="header_mid_inner">
-				<?php 
-	                echo $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('header_mid')->toHtml();
-	            ?>
-			</div>
-			
-				<?php  echo $block->getLayout()
-		          ->createBlock('Magento\Checkout\Block\Cart\Sidebar')
-		          ->setTemplate('Magento_Checkout::cart/minicart.phtml')
-		          ->toHtml(); ?>
-			
-		</div>
-	</div>
-	<div class="header_third">
-		<div class="container">
-			<div class="header_categories">
-				<a href="Javascript:void()">
+<?php
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$storeManager = $objectManager->get('\Magento\Store\Model\StoreManagerInterface');
+$base_url = $storeManager->getStore()->getBaseUrl();
+?>
+
+<div class="header_third">
+    <div class="container">
+        <div class="header_categories">
+            <a href="Javascript:void()">
 					<span class="categories_hamburg">
 						<span></span>
 						<span></span>
 						<span></span>
 					</span>
-					<h5>Categories</h5>
-				</a>
-				<div class="header_categories_dropdown">
-				<?php 
-                  echo $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('header-menu')->toHtml();
-              	?>
-				</div>
-			</div>
+                <h5>Categories</h5>
+            </a>
+            <div class="header_categories_dropdown">
+                <?php
+                echo $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('header-menu')->toHtml();
+                ?>
+            </div>
+        </div>
 
-			<div class="header_search_section">
-				<div class="block block-content">
-        <form class="form minisearch" id="search_mini_form" action=" <?php echo $block->getBaseUrl(); ?>catalogsearch/result/" method="get">
-            <div class="field search">
-                <div class="control">
-                    <input id="search" type="text" name="q" value="" placeholder="Search entire store here..." class="input-text" maxlength="128" role="combobox" aria-haspopup="false" aria-autocomplete="both" autocomplete="off">
-                    <div id="search_autocomplete" class="search-autocomplete"></div>
-                </div>
+        <div class="header_search_section">
+            <div class="block block-content">
+                <form class="form minisearch" id="search_mini_form" action=" <?php echo $block->getBaseUrl(); ?>catalogsearch/result/" method="get">
+                    <div class="field search">
+                        <div class="control">
+                            <input id="search" type="text" name="q" value="" placeholder="Search entire store here..." class="input-text" maxlength="128" role="combobox" aria-haspopup="false" aria-autocomplete="both" autocomplete="off">
+                            <div id="search_autocomplete" class="search-autocomplete"></div>
+                        </div>
+                    </div>
+                    <div class="actions">
+                        <button type="submit" title="Search" class="action search">
+                            <span class="search-icon"></span>
+                        </button>
+                    </div>
+                </form>
             </div>
-            <div class="actions">
-                <button type="submit" title="Search" class="action search">
-                    <span class="search-icon"></span>
-                </button>
-            </div>
-        </form>
+
+        </div>
+        <div class="live_chat"><a href="javascript:void()"><img src="<?php echo $base_url; ?>pub/media/header/live_chat_icon.png" alt="" ></a></div>
     </div>
-				
-			</div>
-			<div class="live_chat"><a href="javascript:void()"><img src="<?php echo $base_url; ?>pub/media/header/live_chat_icon.png" alt="" ></a></div>
-		</div>
-	</div>
-</header>
+</div>
 
 
 
