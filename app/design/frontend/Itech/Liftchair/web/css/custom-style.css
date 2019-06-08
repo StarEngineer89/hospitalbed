@@ -1909,9 +1909,6 @@ strong.product.name.product-item-name {
 
 @media only screen and (max-width : 992px) {
 
-    .cms-home #shopify-section-featured-collections .container {
-        width: 700px;
-    }
     .cms-home #shopify-section-featured-collections .mb30 {
         max-width: 50%;
         width: 50%;
@@ -2001,15 +1998,10 @@ strong.product.name.product-item-name {
         width: 100%;
         margin: 0;
     }
-    .cms-home #shopify-section-featured-collections .container {
-        width: 500px;
-    }
     .cms-home #shopify-section-featured-collections .col-sm-12 {
         padding: 0;
     }
     .cms-home #shopify-section-featured-collections .mb30 {
-        max-width: 100%;
-        width: 100%;
         -ms-flex: 0 0 50%;
         flex: 0 0 100%;
         margin-bottom: 20px;
