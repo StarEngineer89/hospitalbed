@@ -16,12 +16,17 @@ use Magento\Framework\App\Action\Action;
  */
 ?>
 <?php
+ $obj = \Magento\Framework\App\ObjectManager::getInstance();
+
+    /** @var \Magento\Catalog\Model\Config $config */
+    $config= $obj->get('Magento\Catalog\Model\Config');
+
+    
 $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
 $category = $objectManager->get('Magento\Framework\Registry')->registry('current_category');//get current category
 //echo $category->getId();
 
 $_groupCollection = $objectManager->create("\Magento\Eav\Model\ResourceModel\Entity\Attribute\Group\CollectionFactory");
-
 ?>
 <div class="page-title-wrapper">
     <h1 class="page-title">
@@ -61,7 +66,14 @@ $_helper = $this->helper('Magento\Catalog\Helper\Output');
         <ol class="products list items product-items">
             <?php /** @var $_product \Magento\Catalog\Model\Product */ ?>
             <?php foreach ($_productCollection as $_product):
-
+			
+                $beddeck = $_product->getData('bed_deck');
+                $weightcapacity = $_product->getData('weight_capacity');
+                $warranty = $_product->getData('warranty');
+                $maximumbackangle = $_product->getData('maximum_back_angle');
+                $bedsize = $_product->getData('bed_size');
+                $trendelenburg = $_product->getData('trendelenburg');
+                $heightrange = $_product->getData('height_range');
                 $fromDate = $_product->getNewsFromDate();
                 $toDate = $_product->getNewsToDate();
                 //echo $_product->getUpdatedAt();
@@ -81,6 +93,11 @@ $_helper = $this->helper('Magento\Catalog\Helper\Output');
                 $marg = '';
                 ?>
                 <li class="item product product-item">
+				<?php $attributeGroupId = $config->getAttributeGroupId($_product->getAttributeSetId(), 'Specifications'); 
+				$productAttributes=$_product->getAttributes();
+				$group_id=$attributeGroupId;
+				$attributeSetId=$_product->getAttributeSetId();
+         ?>
                     <?php if($dateTimestamp3>$dateTimestamp1 and $dateTimestamp3<$dateTimestamp2){ ?>
                         <div class="date"> <span class="sticker2 top-right2 "><?php echo "New";?></span> </div>
                     <?php } else{ $marg = 'style="margin-top: 0px;"'; } ?>
@@ -113,62 +130,41 @@ $_helper = $this->helper('Magento\Catalog\Helper\Output');
 
                             <div class="product-specifications">
                                 <?php
-                                $product = $objectManager->create('Magento\Catalog\Model\Product')->load($_product->getId());
-
-                                var_dump($_product->getAttributeSetId());
-
                                 $groupCollection = $_groupCollection->create();
                                 $groupCollection->setAttributeSetFilter($_product->getAttributeSetId());
                                 $groupCollection->addFieldToFilter('attribute_group_name', 'Specifications');
 
-                                $groupId = $groupCollection->getFirstItem(); var_dump($groupId);
-//
-//                                $data=[];
-//                                $no =__('No');
-//                                foreach ($_product->getAttributes() as $attribute){
-//
-//                                    if ($attribute->isInGroup($_product->getAttributeSetId(), $groupId) && $attribute->getIsVisibleOnFront() ){
-//                                        if($attribute->getFrontend()->getValue($_product) && $attribute->getFrontend()->getValue($_product)!='' && $attribute->getFrontend()->getValue($_product)!=$no){
-//                                            $data[]=$attribute;
-//                                        }
-//                                    }
-//
-//                                }
+                                $groupId = $groupCollection->getFirstItem();
 
+                                $data=[];
+                                $no =__('No');
+                                foreach ($_product->getAttributes() as $attribute){
 
+                                    if ($attribute->isInGroup($_product->getAttributeSetId(), $groupId) && $attribute->getIsVisibleOnFront() ){
+                                        if($attribute->getFrontend()->getValue($_product) && $attribute->getFrontend()->getValue($_product)!='' && $attribute->getFrontend()->getValue($_product)!=$no){
+                                            $data[]=$attribute;
+                                        }
+                                    }
+
+                                }
                                 ?>
-<!--                                <table>-->
-<!--                                    <tbody>-->
-<!--                                    <tr>-->
-<!--                                        <td>Weight Capacity:</td>-->
-<!--                                        <td>--><?php //echo $weightcapacity; ?><!--</td>-->
-<!--                                    </tr>-->
-<!--                                    <tr>-->
-<!--                                        <td>Height Range:</td>-->
-<!--                                        <td>--><?php //echo $heightrange; ?><!--</td>-->
-<!--                                    </tr>-->
-<!--                                    <tr>-->
-<!--                                        <td>Bed Deck:</td>-->
-<!--                                        <td>--><?php //echo $beddeck; ?><!--</td>-->
-<!--                                    </tr>-->
-<!--                                    <tr>-->
-<!--                                        <td>Bed Size:</td>-->
-<!--                                        <td>--><?php //echo $bedsize; ?><!--</td>-->
-<!--                                    </tr>-->
-<!--                                    <tr>-->
-<!--                                        <td>Trendelenburg:</td>-->
-<!--                                        <td>--><?php //echo $trendelenburg; ?><!--</td>-->
-<!--                                    </tr>-->
-<!--                                    <tr>-->
-<!--                                        <td>Maximum Back Angle:</td>-->
-<!--                                        <td>--><?php //echo $maximumbackangle; ?><!--</td>-->
-<!--                                    </tr>-->
-<!--                                    <tr>-->
-<!--                                        <td>Warranty:</td>-->
-<!--                                        <td>--><?php //echo $warranty; ?><!--</td>-->
-<!--                                    </tr>-->
-<!--                                    </tbody>-->
-<!--                                </table>-->
+								<?php if($group_id){ ?>
+								<table>
+                                    <tbody>
+								<?php foreach ($productAttributes as $attribute) {
+										if ($attribute->isInGroup($attributeSetId, $group_id)) { ?>
+										<tr>
+											<td><?php echo $attribute->getFrontendLabel(); ?></td>
+											<td><?php echo $attribute->getFrontend()->getValue($_product); ?></td>
+										</tr>
+										
+										<?php }
+
+								}  ?>
+								</tbody>
+                                </table>
+								<?php } ?>
+                                
                             </div>
 
                             <?= $block->getReviewsSummaryHtml($_product, $templateType) ?>
