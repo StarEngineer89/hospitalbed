@@ -853,7 +853,6 @@ input.input-text, select, textarea {
 }
 .page-products .products-grid .product-items .item.product.product-item {
     width: 33% !important;
-    min-height: 855px;
     padding: 0;
     margin: 0;
     position: relative;
