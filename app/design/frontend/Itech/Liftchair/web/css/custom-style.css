@@ -142,12 +142,12 @@ span.counter.qty {
 
 body .page-layout-1column body .product-info-main {
 
-    width: 49% !important;
+    width: 100%;
     margin: 0 0 40px 0;
 
 }
 body .page-layout-1column body .product.media {
-    width: 50%;
+    width: 100%;
 }
 .field.qty .label {
     float: left;
@@ -853,6 +853,7 @@ input.input-text, select, textarea {
 }
 .page-products .products-grid .product-items .item.product.product-item {
     width: 33% !important;
+    min-height: 855px;
     padding: 0;
     margin: 0;
     position: relative;
@@ -926,6 +927,7 @@ input.input-text, select, textarea {
     border-right: 1px solid #f1f1f1;
     border-left: 1px solid #f1f1f1;
     width: 100%;
+    display:none;
 }
 .catalog-product-view #product_addtocart_form .review_row {
     border-right: 1px solid #f1f1f1;
@@ -1173,10 +1175,10 @@ input.input-text, select, textarea {
     margin: 0 auto;
 }
 .catalog-product-view #maincontent .product.media {
-    width: 50%;
+    width: 100%;
 }
 .catalog-product-view #maincontent .product-info-main {
-    width: 50%;
+    width: 100%;
     padding: 0 20px;
     background: none;
 }
@@ -1188,8 +1190,12 @@ input.input-text, select, textarea {
     font-weight: 700;
 }
 .catalog-product-view #maincontent .product-info-main .product-reviews-summary.empty,
-.catalog-product-view #maincontent .product-info-main .product-info-price {
+ {
     display: none;
+}
+.catalog-product-view #maincontent .product-info-main .product-info-price{
+    display: block;
+	margin-bottom:0px;
 }
 .catalog-product-view #maincontent .product-add-form {
     padding: 0;
@@ -1200,6 +1206,7 @@ input.input-text, select, textarea {
 .catalog-product-view #maincontent .product-options-bottom .fieldset .price {
     float: left;
     margin: 10px 0 0 0;
+    display: none;
 }
 .catalog-product-view #maincontent .product-options-bottom .fieldset #product-addtocart-button {
     margin-left: 30px;
@@ -1221,7 +1228,7 @@ input.input-text, select, textarea {
     background: none;
     border-color: transparent;
     font-size: 16px;
-    color: #282727;
+    color: white;
     font-weight: 700;
     text-transform: uppercase;
     border-radius: 0;
@@ -1232,18 +1239,56 @@ input.input-text, select, textarea {
     border: 1px solid #233d6d;
 }
 .catalog-product-view #maincontent .product.info.detailed .item.active a {
-    border: 1px solid #233d6d;
     border-bottom: 1px solid #fff;
 }
 .catalog-product-view #maincontent .product.info.detailed .item a:hover {
-    background: #eee;
+    background: #D3D3D3;
 }
 .catalog-product-view #maincontent .product.info.detailed .item.active a:hover {
     background: none;
 }
 .catalog-product-view #maincontent .product.info.detailed .content {
-    border: 1px solid #000;
+    border: 1px solid lightgray;
 }
+/* added by Victor */
+
+.product.media .gallery-placeholder .fotorama__nav--thumbs{
+	width:88%;
+}
+.fotorama__stage__shaft .fotorama__grab{
+	left:8%;
+}
+
+.product.data.items>.item.title{
+	margin:0 1.5px 0 0;
+}
+.data.item.title.active {
+    background: url(https://skin.medmartonline.com/frontend/sm_market/default/images/details-pointer.png) no-repeat scroll center 33px transparent;
+    background-color: #0095da;
+}
+.data.item.title{
+    background-color: #a5a5a5;
+}
+.actions {
+    float: left;
+}
+.brand-p-conatiner {
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+    width: 280px;
+}
+.product-info-main-left {
+    padding-left: 0;
+    float: left;
+    width: 50%;
+}
+
+.product-info-main-right {
+    margin-right: 7%;
+    width: 27%;
+    float: right !important;
+}
+/* end Victor */
 .actions #product-addtocart-button {
     border-radius: 45px;
     padding: 6px 0 8px 0;
@@ -1327,6 +1372,7 @@ input.input-text, select, textarea {
     margin-right: 15px;
     border: 1px solid #ddd;
     padding: 0;
+	margin-bottom:3%;
 }
 .catalog-product-view #maincontent .gallery-placeholder .fotorama__nav__frame:hover {
     border: 1px solid #bbb;
@@ -1441,13 +1487,15 @@ div#variant-inventory {
 .product-vendor {
     margin-left: 22px;
 }
+/*
 span.price {
     font-size: 14px!important;
     margin-top: -7px!important;
 }
+
 span.price {
     color: #ec3547!important;
-}
+}*/
 .product-item .price-box .price-label {
 
     display: none;
@@ -1457,7 +1505,7 @@ span.price {
     margin: 9px;
 }
 .review_row .share {
-    float: right;
+    float: left;
 }
 .review_row div.share div.social-sharing ul li a, #content .tag_c div.share div.social-sharing ul li a {
     background: #d9d9d9;
@@ -1830,7 +1878,7 @@ strong.product.name.product-item-name {
         width: 100%;
     }
     .catalog-product-view #maincontent .product-info-main {
-        width: 50%;
+        width: 100%;
         padding: 0 0 0 20px;
     }
 
@@ -1907,7 +1955,64 @@ strong.product.name.product-item-name {
 }
 
 @media only screen and (max-width : 992px) {
+/* Added By Victor */
+.catalog-product-view #product_addtocart_form .product-options-bottom {
 
+    border-top: 20px solid #fff;
+    padding: 0;
+    background: #fafafa;
+
+}
+.catalog-product-view .product-info-main .field .control {
+    width: 25%;
+    margin: 0px;
+    margin-top: 0px;
+    float: left;
+}
+.catalog-product-view #maincontent .product-options-bottom .fieldset #product-addtocart-button {
+    margin-left: 20px;
+    margin-top: -3%;
+}
+.review_row .share {
+    float: left;
+    margin-left: 4%;
+}
+
+
+.fieldset>.field{
+margin:-7px 0 20px !important;
+}
+.brand-p-conatiner {
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+    width: 97%;
+    margin-left: 6%;
+}
+	
+
+	.actions {
+		 float: none; }
+		 .fotorama__stage {
+		 left: 0% !important; 
+	}
+
+	.product-info-main-right {
+		float: left;
+		margin-left: 4%;
+		width:95%;
+		}
+		
+
+	.field.qty .label {
+		float: left;
+		padding: 0;
+		font-size: 25px;
+        margin-left: 11%;
+        margin-right:5%;
+		
+	}
+
+/*end */
     .cms-home #shopify-section-featured-collections .mb30 {
         max-width: 50%;
         width: 50%;
@@ -1943,9 +2048,9 @@ strong.product.name.product-item-name {
     .cms-home #shopify-section-featured-collections .clearfix h3 {
         padding: 0 30px 10px;
     }
-    .catalog-product-view .product-info-main .field .control {
+    /*.catalog-product-view .product-info-main .field .control {
         width: 100%;
-    }
+    }*/
     .catalog-product-view #maincontent .product-info-main .field .control .field {
         width: auto;
         position: relative;
