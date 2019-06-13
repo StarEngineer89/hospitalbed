@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <catalog>
+            <frontend>
+                <list_mode>grid-list</list_mode>
+                <grid_per_page_values>9,15,30</grid_per_page_values>
+                <list_per_page_values>5,10,15,20,25</list_per_page_values>
+                <grid_per_page>all</grid_per_page>
+                <list_per_page>all</list_per_page>
+                <flat_catalog_category>0</flat_catalog_category>
+                <default_sort_by>price</default_sort_by>
+                <parse_url_directives>1</parse_url_directives>
+                <remember_pagination>0</remember_pagination>
+            </frontend>
+        </catalog>
+    </default>
+</config>
