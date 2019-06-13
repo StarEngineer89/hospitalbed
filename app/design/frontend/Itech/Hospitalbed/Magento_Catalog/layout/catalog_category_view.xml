@@ -10,6 +10,7 @@
         <referenceBlock name="product_list_toolbar">
             <action method="setDefaultGridPerPage">
                 <argument name="limit" xsi:type="string">all</argument>
+				<argument name="value" xsi:type="string">all</argument>
             </action>
         </referenceBlock>
     </body>
