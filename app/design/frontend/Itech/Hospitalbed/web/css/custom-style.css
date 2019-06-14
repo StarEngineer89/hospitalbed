@@ -1249,6 +1249,7 @@ input.input-text, select, textarea {
     padding: 6px 0 8px 0;
     width: 100%;
     max-width: 139px;
+    margin-top: 15px;
 }
 .page-products .products-grid .product-items .product-item .price-box .old-price .price-label {
     display: none;
@@ -1441,12 +1442,11 @@ div#variant-inventory {
 .product-vendor {
     margin-left: 22px;
 }
-span.price {
-    font-size: 14px!important;
-    margin-top: -7px!important;
-}
-span.price {
-    color: #ec3547!important;
+.price-container span.price {
+    margin-top: -7px;
+    color: #ec3547;
+    font-size: 2em;
+    font-weight: 600;
 }
 .product-item .price-box .price-label {
 
