@@ -130,25 +130,7 @@ $_helper = $this->helper('Magento\Catalog\Helper\Output');
                             </strong>
 
                             <div class="product-specifications">
-                                <?php
-                                $groupCollection = $_groupCollection->create();
-                                $groupCollection->setAttributeSetFilter($_product->getAttributeSetId());
-                                $groupCollection->addFieldToFilter('attribute_group_name', 'Specifications');
 
-                                $groupId = $groupCollection->getFirstItem();
-
-                                $data=[];
-                                $no =__('No');
-                                foreach ($_product->getAttributes() as $attribute){
-
-                                    if ($attribute->isInGroup($_product->getAttributeSetId(), $groupId) && $attribute->getIsVisibleOnFront() ){
-                                        if($attribute->getFrontend()->getValue($_product) && $attribute->getFrontend()->getValue($_product)!='' && $attribute->getFrontend()->getValue($_product)!=$no){
-                                            $data[]=$attribute;
-                                        }
-                                    }
-
-                                }
-                                ?>
 								<?php if($group_id){ ?>
 								<table>
                                     <tbody>
@@ -156,7 +138,7 @@ $_helper = $this->helper('Magento\Catalog\Helper\Output');
 										if ($attribute->isInGroup($attributeSetId, $group_id)) { ?>
 										<tr>
 											<td><?php echo $attribute->getFrontendLabel(); ?></td>
-                                            <td><?php if($product->getData($attribute->getAttributeCode())!=""){ echo floatval($product->getData($attribute->getAttributeCode())); } ?></td>
+                                            <td><?php if($product->getData($attribute->getAttributeCode())!=""){ echo $product->getData($attribute->getAttributeCode()); } ?></td>
 										</tr>
 										
 										<?php }
