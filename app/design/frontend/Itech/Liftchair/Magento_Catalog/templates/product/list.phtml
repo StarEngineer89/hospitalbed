@@ -98,7 +98,7 @@ $_helper = $this->helper('Magento\Catalog\Helper\Output');
 				$productAttributes=$_product->getAttributes();
 				$group_id=$attributeGroupId;
 				$attributeSetId=$_product->getAttributeSetId();
-         ?>
+            ?>
                     <?php if($dateTimestamp3>$dateTimestamp1 and $dateTimestamp3<$dateTimestamp2){ ?>
                         <div class="date"> <span class="sticker2 top-right2 "><?php echo "New";?></span> </div>
                     <?php } else{ $marg = 'style="margin-top: 0px;"'; } ?>
@@ -156,7 +156,7 @@ $_helper = $this->helper('Magento\Catalog\Helper\Output');
 										if ($attribute->isInGroup($attributeSetId, $group_id)) { ?>
 										<tr>
 											<td><?php echo $attribute->getFrontendLabel(); ?></td>
-											<td><?php if($product->getData($attribute->getAttributeCode())!=""){echo $product->getData($attribute->getAttributeCode());} ?></td>
+											<td><?php if($product->getData($attribute->getAttributeCode())!=""){ echo floatval($product->getData($attribute->getAttributeCode())); } ?></td>
 										</tr>
 										
 										<?php }
