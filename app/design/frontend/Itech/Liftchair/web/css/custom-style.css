@@ -911,6 +911,7 @@ input.input-text, select, textarea {
 .catalog-product-view #product_addtocart_form .product-options-bottom .box-tocart {
     margin-bottom: 0;
     margin-top: 0;
+	padding:0px;
 }
 .catalog-product-view #product_addtocart_form .product-options-bottom .box-tocart .fieldset {
     margin-bottom: 0;
@@ -921,13 +922,116 @@ input.input-text, select, textarea {
     width: 100%;
     margin: 0;
     padding: 10px 0;
+}.rule-name {
+    float: left;
+    padding: 20px 0 0 0 !important;
+    width: 100% !important;
+}
+.rule-name h3 {
+    color: #00aaf2;
+    font-family: OpenSansBold, serif;
+    font-size: 26px;
+    text-transform: uppercase;
+}
+.product-rule-description {
+    float: left;
+    clear: both;
+    max-width: 340px;
+    font-family: OpenSansRegular, serif;
+    font-size: 13px;
+    color: #333;
+}
+.voprosik {
+    background: url(https://skin.medmartonline.com/frontend/sm_market/default/images/info-icon.png) no-repeat;
+    width: 16px;
+    height: 16px;
+    position: relative;
+    display: inline-block;
+    margin-left: 5px;
+    margin-bottom: -3px;
+    cursor: pointer;
+}
+.freegiftimages {
+    box-sizing: unset;
+    padding: 0px;
+    margin: 0px;
+    width: 17%;
+    float: left;
+}
+.freegifttooltip {
+    background: url(https://skin.medmartonline.com/frontend/sm_market/default/images/tool-tip-rollover.png) no-repeat;
+    width: 264px;
+    height: 64px;
+    padding: 4px 30px 0 30px;
+    position: absolute;
+    display: none;
+    top: -64px;
+    left: -123px;
+}
+.freegifttooltip span {
+    font-family: OpenSansRegular, serif;
+    font-size: 12px;
+    color: #333;
 }
 .catalog-product-view #product_addtocart_form .prod_sku_vend {
     margin: 0;
     border-right: 1px solid #f1f1f1;
     border-left: 1px solid #f1f1f1;
     width: 100%;
-    display:none;
+    display:block;
+}
+.freegift {
+    width: 100%;
+    border: 1px solid #e4e4e4;
+    float: left;
+}
+.promotionlabelfreegift {
+    background: url(https://skin.medmartonline.com/frontend/sm_market/default/images/promotion-graphic.png) no-repeat;
+    width: 86px;
+    height: 87px;
+    float: left;
+}
+.product-gift-image {
+    width: auto!important;
+    height: auto!important;
+    text-decoration: none!important;
+    display: inline-block!important;
+    margin-bottom: 5px;
+}
+.product-tootip-title {
+    float: right;
+    padding-bottom: 10px;
+}
+.product-tootip-head {
+    width: 100%;
+    float: left;
+}
+.review-product {
+    align-content: center;
+    text-align: center;
+    width: 50%;
+    margin-left: 20%;
+}
+.product-title h1 {
+    font-size: 27px;
+    font-weight: bold;
+    font-family: OpenSansBold, serif;
+    max-width: 445px;
+    margin: 0 auto;
+	text-align:center;
+}
+.ships {
+    background: url(https://skin.medmartonline.com/frontend/sm_market/default/images/shipping_truck.png) no-repeat left center;
+    padding-left: 50px;
+    color: #080808;
+    font-size: 17px;
+    font-family: OpenSansBold, serif;
+    margin: 10px auto;
+    height: 21px;
+    line-height: 21px;
+    display: inline-block;
+    text-align: center;
+    text-transform: capitalize;
 }
 .catalog-product-view #product_addtocart_form .review_row {
     border-right: 1px solid #f1f1f1;
@@ -1272,10 +1376,54 @@ input.input-text, select, textarea {
 .actions {
     float: left;
 }
-.brand-p-conatiner {
+.youhaveaquestion {
+
+   
+    position: relative;
+    height: 103px;
+    margin-top: 15px;
+
+}
+.bimg {
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    display: block;
+}
+.helpimage {
+
+    float: left;
+    margin-left: 30px;
+    margin-top: 10px;
+
+}
+.helptext {
+
+    float: left;
+    margin-top: 20px;
+    width: 140px;
+
+}
+.helptext .needhelp span {
+
+    font-family: OpenSansBold,serif;
+    font-size: 17px;
+    color: #333;
+
+}
+.inner-spac-br {
     border: 1px solid #ccc;
     background-color: #f1f1f1;
     width: 280px;
+}
+.brand-p-conatiner {
+    background-color: #f1f1f1;
+}
+.b-p-conatiner {
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 12px;
+    padding-top: 12px;
 }
 .product-info-main-left {
     padding-left: 0;
@@ -1294,6 +1442,7 @@ input.input-text, select, textarea {
     padding: 6px 0 8px 0;
     width: 100%;
     max-width: 139px;
+	margin-left:30px;
 }
 .page-products .products-grid .product-items .product-item .price-box .old-price .price-label {
     display: none;
@@ -1953,9 +2102,65 @@ strong.product.name.product-item-name {
 
 
 }
-
+.social-links {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 3px;
+    width: 265px;
+	}
+	.social-icons label {
+    font-size: 20px;
+    display: inline-block;
+	float: left;
+	}	
+	   strong#block-upsell-heading {
+color: rgb(102, 102, 102);
+    display: inline-block;
+    font-size: 16px;
+    font-style: italic;
+    padding-bottom: 10px;
+    position: relative;}
+	.social-icons a{
+   background: #d9d9d9;
+    display: inline-block;
+    font-size: 1.3333em;
+    height: 32px;
+    line-height: 32px;
+    margin-right: 4px;
+    -moz-transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    width: 32px;
+    border-radius: 50%;
+    overflow: hidden;
+    text-align: center;
+}
+.social-icons {
+    display: inline-block;
+}
+.products-grid .product-item{
+	margin-left:0% !important;
+}
 @media only screen and (max-width : 992px) {
 /* Added By Victor */
+
+.inner-spac-br {
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+    width: 280px;
+    margin-left: 8%;
+}
+.social-links {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 3px;
+    width: 265px;
+    margin-left: 8%;
+}
+.column.main .block:last-child {
+    margin-left: 8%;
+    margin-bottom: 0;
+}
 .catalog-product-view #product_addtocart_form .product-options-bottom {
 
     border-top: 20px solid #fff;
@@ -1983,10 +2188,10 @@ strong.product.name.product-item-name {
 margin:-7px 0 20px !important;
 }
 .brand-p-conatiner {
-    border: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
     background-color: #f1f1f1;
-    width: 97%;
-    margin-left: 6%;
+    width: 100%;
+    margin-left: 0%;
 }
 	
 

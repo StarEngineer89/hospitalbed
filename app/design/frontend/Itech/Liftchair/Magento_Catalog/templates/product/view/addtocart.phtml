@@ -29,9 +29,9 @@
         </div>
               <?php  $vender = $_product->getData('vender');?>
               <?php endif; ?>
-         <div class="price">
+         <!---<div class="price">
            <?php /* @escapeNotVerified */ echo $block->getProductPrice($_product) ?>     
-        </div>
+        </div>-->
         <div class="actions">
             <button type="submit"
                     title="<?= /* @escapeNotVerified */ $buttonTitle ?>"
@@ -58,13 +58,11 @@
                 </div>
                     <div class="prod_sku_vend">
                     <div class="variant-sku"></div>
-                    <div class="product-vendor"><strong>Vendor: </strong><?php echo $vender; ?></div>
+                    <!--<div class="product-vendor"><strong>Vendor: </strong><?php echo $vender; ?></div>-->
                     <div id="variant-inventory">
                       <?php $qty_p = $_product->getExtensionAttributes()->getStockItem()->getQty(); ?>
                       <?php if($qty_p > 0){ ?>
-                      <span class="in-stock">
-                         <b>In Stock! Delivered in 3 to 5 Business Days</b>
-                       </span>
+                      <div class="ships">Ships in: 2-3 Days</div>
                       <?php } else{ ?>
                        <span class="out-of-stock">
                          <b>Out of Stock!</b>
@@ -72,7 +70,7 @@
                       <?php } ?>
                     </div>
                    </div>
-     <div class="review_row clearfix">
+     <!--<div class="review_row clearfix">
            <span class="shopify-product-reviews-badge" data-id="2470816743504"></span>
         <div class="share">
           <div class="social-sharing">
@@ -86,7 +84,7 @@
         </div>
 
         
-     </div>
+     </div>-->
      <script type="text/x-magento-init">
     {
         "#product_addtocart_form": {
